@@ -1,7 +1,7 @@
 # fleetsave
 Zorg Empire Fleetsave Calculation tool 
 
-this tools is used to calculate return dates on diverent speeds from 1 to 100%
+this tools is used to calculate return dates and timeon using speeds from 1 to 100%
 
 https://www.zorgempire.net/uni/reloaded/fleet.php
 
