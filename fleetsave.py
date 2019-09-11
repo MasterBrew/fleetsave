@@ -27,6 +27,7 @@ myUtcDif = utcNow - myNow
 
 # See if there is a clipboard to work with.
 if pyperclip == '':
+    app.warningBox('[Clipboard]', 'No Content!!  Need  01:43:03 for example')
     # print('No clipboard content..')
     exit()
 
@@ -36,13 +37,8 @@ if len(clipBoard) <= 8:
     pass
     # print('[Clp] : ', clipBoard[:10])
 else:
-    print('[Clp] : To big.  expected something like hour:min:sec like 76:13:06')
-    print('[Clp] : using a template 00:00:00 now!!!!')
-    # just for testing!!!
-    sleep(1)
-    clipBoard = '00:00:00'
-    pyperclip.copy(clipBoard)
-    # exit()
+    app.warningBox('[Clipboard]','Nothing found like ->  01:43:03  for example')
+    exit()
 
 # Create a RegEx for time match Hour:minutes:sec  like  76:13:06 or   01:00:00  (one Hour)
 durationRegEx = re.compile(r'(\d+):(\d\d):(\d\d)')
@@ -53,7 +49,7 @@ if mo:
     hour, minutes, second = mo.groups()
     totalDuration = int(hour) * 3600 + int(minutes) * 60 + int(second)
 else:
-    #clipBoard = '01:00:11'
+    # clipBoard = '01:00:11'
     print('[Clp] :  No match!.')
     sleep(1)
     exit()
@@ -79,21 +75,12 @@ for percentage in range(1, 101):
     yearOfArrival = dt_object.strftime("%Y").ljust(4, ' ')
     percentage =  percentage.rjust(8, ' ') + ' '
 
-    # print(percentage, dayNameOfArrival, timeOfArrival,dayOfArrival,monthOfArrival,yearOfArrival)
     theLine = percentage + ' ' + dayNameOfArrival + ' ' + timeOfArrival + ' ' + dayOfArrival + ' ' + monthOfArrival + ' ' + yearOfArrival
     theList.append(theLine)
 
-theList.reverse()
-
-# for items in theList:
-#     print(items)
+# theList.reverse()
 
 app.addListBox('theList', theList , rowspan=2)
 
-# app.buttons(["Quit"], [Quit])
-# app.enableEnter(Quit)
 app.go()
 
-
-# input("\nPress <Enter> to continue..")
-# print('Done...')
