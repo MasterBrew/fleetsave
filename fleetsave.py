@@ -13,15 +13,9 @@ def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
+Version = "V1.34"
 
-# print('\nPath to the favicon.ico')
-# print('-'*60)
-# print(resource_path('myFavicon.ico').center(60, ' '))
-# print('-'*60)
-
-Version = "V1.33"
-
-app = gui("ZorgEmpire Fleetsaver " + Version, "378x620")
+app = gui("Zorg Empire Fleetsaver " + Version, "378x620")
 app.setBg("SteelBlue")
 app.setFont(11)
 app.setLocation(x=890, y=5)
@@ -37,6 +31,7 @@ myUtcDif = utcNow - myNow
 
 # See if there is a clipboard to work with.
 if pyperclip == '':
+    app.warningBox('Clipboard empty', 'No "duration" found. ->  01:43:03  for example')
     print('No clipboard content..')
     sleep(10)
     exit()
@@ -47,6 +42,7 @@ if len(clipBoard) <= 8:
     pass
     # print('[Clp] : ', clipBoard[:10])
 else:
+    app.warningBox('Clipboard Invalid!', 'No "duration" found. ->  01:43:03  for example')
     print('Nothing found like ->  01:43:03  for example')
     sleep(10)
     exit()
@@ -60,6 +56,7 @@ if mo:
     hour, minutes, second = mo.groups()
     totalDuration = int(hour) * 3600 + int(minutes) * 60 + int(second)
 else:
+    app.warningBox('Clipboard Invalid!', 'No "duration" found. ->  01:43:03  for example')
     print('[Clp] :  No match!. Need  01:43:03 for example')
     sleep(10)
     exit()
