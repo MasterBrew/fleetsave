@@ -4,7 +4,7 @@ from datetime import datetime
 from appJar import gui
 from time import sleep
 
-Version = "V1.00"
+Version = "V1.10"
 
 def Quit():
     app.stop(event=None)
@@ -17,7 +17,7 @@ app.setFont(11)
 app.setLocation(x=890, y=5)
 app.setTransparency(90)
 app.setOnTop(stay=False)
-app.setIcon("favicon.ico")
+#app.setIcon("favicon.ico")
 
 utcNow = datetime.utcnow().timestamp()
 myNow = datetime.now().timestamp()
