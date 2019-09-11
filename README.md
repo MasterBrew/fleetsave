@@ -15,4 +15,4 @@ save the duration to the clipboard
   enjoy the ride...
 
 'Excecute script failure!'   place the favicone.ico in same dir as the excecutable ..
- or use   # app.icon = False   on line 20
+ or use   # app.ShowIcon = False   on line 20
