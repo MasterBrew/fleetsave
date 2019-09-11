@@ -17,6 +17,8 @@ app.setFont(11)
 app.setLocation(x=890, y=5)
 app.setTransparency(90)
 app.setOnTop(stay=False)
+
+app.showIcon = False
 #app.setIcon("favicon.ico")
 
 utcNow = datetime.utcnow().timestamp()
